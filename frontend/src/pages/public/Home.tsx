@@ -310,15 +310,6 @@ function Home() {
                 <p className="mt-2 font-serif text-2xl text-white">For your kind of occasion.</p>
               </div>
             </div>
-            <div className="absolute bottom-12 left-0 flex items-center gap-3 rounded-2xl border border-white/15 bg-[#17212b]/90 p-4 shadow-xl backdrop-blur">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-amber-300/15 text-amber-300">
-                <Music2 size={21} />
-              </span>
-              <div>
-                <p className="text-sm font-bold text-white">A sound for every story</p>
-                <p className="mt-1 text-xs text-white/55">Find your live music match</p>
-              </div>
-            </div>
           </div>
         </div>
 

@@ -1,5 +1,15 @@
 # React + TypeScript + Vite
 
+## Musibanda app setup
+
+Install Node.js 20 or newer. From `frontend/`, run `npm install`, copy `.env.example` to `.env`, then run `npm run dev`. Set `VITE_API_URL` to the backend API URL (default: `http://localhost:3000/api`).
+
+`npm run build` runs the TypeScript build and production bundle; `npm run lint` runs ESLint.
+
+Login and registration use the Express API and an HTTP-only session cookie. The browser does not receive database credentials or password hashes. `/admin/*` is protected in the UI and each admin API route independently checks the authenticated database role.
+
+See [the backend README](../backend/README.md) for database setup, migration, administrator creation, and API test instructions. Password recovery requires an email delivery provider and is not enabled yet.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
