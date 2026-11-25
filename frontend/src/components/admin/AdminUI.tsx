@@ -23,7 +23,7 @@ export function StatusBadge({ value }: { value: string }) {
     cancelled: 'bg-rose-50 text-rose-700',
     rejected: 'bg-rose-50 text-rose-700',
     failed: 'bg-rose-50 text-rose-700',
-    refunded: 'bg-violet-50 text-violet-700',
+    refunded: 'bg-amber-50 text-amber-800',
   }
   const label = value.charAt(0).toUpperCase() + value.slice(1)
   return <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${styles[value.toLowerCase()] ?? 'bg-slate-100 text-slate-600'}`}>{label}</span>

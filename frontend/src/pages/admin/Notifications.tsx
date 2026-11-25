@@ -81,12 +81,12 @@ export default function Notifications() {
       <form onSubmit={createNotification} className="mb-6 grid gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
         <h2 className="font-bold text-slate-900">Create system notification</h2>
         <label className="text-sm font-medium text-slate-700">Title
-          <input required maxLength={160} value={title} onChange={(event) => setTitle(event.target.value)} className="mt-1.5 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10" />
+          <input required maxLength={160} value={title} onChange={(event) => setTitle(event.target.value)} className="mt-1.5 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10" />
         </label>
         <label className="text-sm font-medium text-slate-700">Message
-          <textarea required maxLength={2000} rows={3} value={message} onChange={(event) => setMessage(event.target.value)} className="mt-1.5 w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10" />
+          <textarea required maxLength={2000} rows={3} value={message} onChange={(event) => setMessage(event.target.value)} className="mt-1.5 w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10" />
         </label>
-        <button type="submit" disabled={saving} className="w-fit rounded-xl bg-violet-600 px-5 py-3 text-sm font-bold text-white hover:bg-violet-700 disabled:opacity-60">{saving ? 'Creating…' : 'Create notification'}</button>
+        <button type="submit" disabled={saving} className="w-fit rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-slate-950 hover:bg-amber-300 disabled:opacity-60">{saving ? 'Creating…' : 'Create notification'}</button>
       </form>
       <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div className="border-b border-slate-100 px-5 py-4"><h2 className="font-bold text-slate-900">Notification records</h2></div>
@@ -97,12 +97,12 @@ export default function Notifications() {
                 <div>
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="font-semibold text-slate-800">{notification.title}</h3>
-                    <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${notification.is_read ? 'bg-slate-100 text-slate-600' : 'bg-violet-50 text-violet-700'}`}>{notification.is_read ? 'Read' : 'Unread'}</span>
+                    <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${notification.is_read ? 'bg-slate-100 text-slate-600' : 'bg-amber-50 text-amber-800'}`}>{notification.is_read ? 'Read' : 'Unread'}</span>
                   </div>
                   <p className="mt-1 text-sm leading-6 text-slate-600">{notification.message}</p>
                   <p className="mt-1 text-xs text-slate-400">{notification.user_id ? 'User-specific' : 'System-wide'} · {formatDate(notification.created_at)}</p>
                 </div>
-                <button type="button" onClick={() => void setRead(notification, !notification.is_read)} className="shrink-0 text-left text-sm font-semibold text-violet-700 hover:text-violet-900">
+                <button type="button" onClick={() => void setRead(notification, !notification.is_read)} className="shrink-0 text-left text-sm font-semibold text-amber-800 hover:text-amber-950">
                   Mark as {notification.is_read ? 'unread' : 'read'}
                 </button>
               </li>

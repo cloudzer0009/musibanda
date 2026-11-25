@@ -2,7 +2,6 @@ import 'dotenv/config'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import express, { type ErrorRequestHandler } from 'express'
-import { rateLimit } from 'express-rate-limit'
 import helmet from 'helmet'
 import { pool } from './db/pool.js'
 import { requireAdmin, requireAuth } from './middleware/auth.js'
@@ -38,15 +37,7 @@ app.get('/api/health', async (_req, res, next) => {
   }
 })
 
-const authRateLimit = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  limit: 20,
-  standardHeaders: 'draft-7',
-  legacyHeaders: false,
-  message: { message: 'Too many authentication attempts. Please try again later.' },
-})
-
-app.use('/api/auth', authRateLimit, authRouter)
+app.use('/api/auth', authRouter)
 app.use('/api/admin', requireAuth, requireAdmin, adminRouter)
 
 app.use((_req, res) => {

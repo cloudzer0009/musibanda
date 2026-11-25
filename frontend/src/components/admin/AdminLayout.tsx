@@ -32,10 +32,10 @@ export default function AdminLayout() {
   }
 
   const sidebar = (
-    <div className="flex h-full flex-col bg-[#101827] text-white">
+    <div className="flex h-full flex-col bg-[#101820] text-white">
       <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
         <Link to="/admin/dashboard" onClick={() => setMenuOpen(false)} className="inline-flex items-center gap-3 text-white">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-violet-500"><Music2 size={21} /></span>
+          <span className="grid h-10 w-10 place-items-center rounded-xl bg-amber-400 text-slate-950"><Music2 size={21} /></span>
           <span className="text-sm font-extrabold tracking-[0.14em]">MUSIBANDA</span>
         </Link>
         <button type="button" className="rounded-lg p-2 text-slate-300 md:hidden" onClick={() => setMenuOpen(false)} aria-label="Close navigation">
@@ -48,7 +48,7 @@ export default function AdminLayout() {
             key={to}
             to={to}
             onClick={() => setMenuOpen(false)}
-            className={({ isActive }) => `flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition ${isActive ? 'bg-violet-500/20 text-violet-200' : 'text-slate-300 hover:bg-white/5 hover:text-white'}`}
+            className={({ isActive }) => `flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition ${isActive ? 'bg-amber-400 text-slate-950' : 'text-slate-300 hover:bg-white/5 hover:text-white'}`}
           >
             <Icon size={18} />
             {label}
@@ -65,7 +65,7 @@ export default function AdminLayout() {
   )
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-[#f7f8fc]">
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 md:block">{sidebar}</aside>
       {menuOpen && <button className="fixed inset-0 z-30 bg-slate-950/50 md:hidden" aria-label="Close menu overlay" onClick={() => setMenuOpen(false)} />}
       <aside className={`fixed inset-y-0 left-0 z-40 w-72 transition-transform md:hidden ${menuOpen ? 'translate-x-0' : '-translate-x-full'}`}>{sidebar}</aside>
@@ -77,7 +77,7 @@ export default function AdminLayout() {
           <div className="hidden text-sm font-medium text-slate-500 md:block">Administrator workspace</div>
           <div className="ml-auto flex items-center gap-3">
             <span className="hidden text-sm font-semibold text-slate-700 sm:block">{user?.fullName}</span>
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-violet-100 text-sm font-bold text-violet-700">{user?.fullName.charAt(0).toUpperCase()}</span>
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-amber-100 text-sm font-bold text-amber-900">{user?.fullName.charAt(0).toUpperCase()}</span>
           </div>
         </header>
         <main className="mx-auto max-w-[1440px] px-4 py-7 sm:px-7 lg:px-9">

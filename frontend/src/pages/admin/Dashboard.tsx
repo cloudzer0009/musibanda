@@ -50,7 +50,7 @@ export default function Dashboard() {
               <article key={key} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-slate-500">{label}</span>
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-violet-50 text-violet-700"><Icon size={19} /></span>
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-amber-50 text-amber-800"><Icon size={19} /></span>
                 </div>
                 <p className="mt-4 text-3xl font-bold tracking-tight text-slate-900">{data.totals[key].toLocaleString()}</p>
               </article>
@@ -59,7 +59,7 @@ export default function Dashboard() {
           <section className="mt-6 grid gap-6 xl:grid-cols-[1.4fr_0.8fr]">
             <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div className="flex items-center gap-2 border-b border-slate-100 px-5 py-4">
-                <CalendarDays size={18} className="text-violet-600" />
+                <CalendarDays size={18} className="text-amber-700" />
                 <h2 className="font-bold text-slate-900">Recent bookings</h2>
               </div>
               <div className="overflow-x-auto">
@@ -85,7 +85,7 @@ export default function Dashboard() {
             <div className="space-y-6">
               <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                 <div className="flex items-center gap-2">
-                  <Activity size={18} className="text-violet-600" />
+                  <Activity size={18} className="text-amber-700" />
                   <h2 className="font-bold text-slate-900">Booking status</h2>
                 </div>
                 <div className="mt-5 space-y-4">
@@ -99,7 +99,7 @@ export default function Dashboard() {
                           <span className="font-semibold text-slate-800">{count}</span>
                         </div>
                         <div className="h-2 overflow-hidden rounded-full bg-slate-100">
-                          <div className="h-full rounded-full bg-violet-500" style={{ width: `${percent}%` }} />
+                          <div className="h-full rounded-full bg-amber-400" style={{ width: `${percent}%` }} />
                         </div>
                       </div>
                     )

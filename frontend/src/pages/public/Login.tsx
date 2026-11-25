@@ -43,7 +43,7 @@ export default function Login() {
 
   return (
     <AuthLayout eyebrow="Welcome back" title="Sign in to Musibanda" description="Use your account details to continue.">
-      <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+      <form className="space-y-3.5" onSubmit={handleSubmit} noValidate>
         <label className="block text-sm font-semibold text-slate-700">
           Email address
           <input
@@ -53,12 +53,12 @@ export default function Login() {
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             placeholder="you@example.com"
-            className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10"
+            className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10"
           />
         </label>
         <div className="block text-sm font-semibold text-slate-700">
           <label htmlFor="login-password">Password</label>
-          <span className="relative mt-2 block">
+          <span className="relative mt-1.5 block">
             <input
               id="login-password"
               type={showPassword ? 'text' : 'password'}
@@ -67,7 +67,7 @@ export default function Login() {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               placeholder="Enter your password"
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pr-12 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10"
+              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 pr-12 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10"
             />
             <button type="button" onClick={() => setShowPassword((visible) => !visible)} className="absolute inset-y-0 right-0 grid w-12 place-items-center text-slate-400 hover:text-slate-700" aria-label={showPassword ? 'Hide password' : 'Show password'}>
               {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
@@ -76,21 +76,21 @@ export default function Login() {
         </div>
         <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
           <label className="inline-flex items-center gap-2 text-slate-600">
-            <input type="checkbox" checked={rememberMe} onChange={(event) => setRememberMe(event.target.checked)} className="h-4 w-4 rounded border-slate-300 accent-violet-600" />
+            <input type="checkbox" checked={rememberMe} onChange={(event) => setRememberMe(event.target.checked)} className="h-4 w-4 rounded border-slate-300 accent-amber-500" />
             Remember me
           </label>
-          <button type="button" onClick={() => setShowRecoveryHelp((visible) => !visible)} className="font-semibold text-violet-700 hover:text-violet-900">
+          <button type="button" onClick={() => setShowRecoveryHelp((visible) => !visible)} className="font-semibold text-amber-800 hover:text-amber-950">
             Forgot password?
           </button>
         </div>
-        {showRecoveryHelp && <p className="rounded-lg bg-violet-50 px-3 py-2 text-sm leading-5 text-violet-800">Password recovery is not configured yet. Please contact your Musibanda administrator for help.</p>}
+        {showRecoveryHelp && <p className="rounded-lg bg-amber-50 px-3 py-2 text-sm leading-5 text-amber-900">Password recovery is not configured yet. Please contact your Musibanda administrator for help.</p>}
         {error && <p role="alert" className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">{error}</p>}
-        <button type="submit" disabled={loading} className="flex w-full items-center justify-center rounded-xl bg-violet-600 px-4 py-3.5 text-sm font-bold text-white shadow-lg shadow-violet-600/20 transition hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60">
+        <button type="submit" disabled={loading} className="flex w-full items-center justify-center rounded-xl bg-amber-400 px-4 py-3 text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-60">
           {loading ? 'Signing in…' : 'Sign in'}
         </button>
       </form>
-      <p className="mt-7 text-center text-sm text-slate-500">
-        New to Musibanda? <Link to="/register" className="font-bold text-violet-700 hover:text-violet-900">Create an account</Link>
+      <p className="mt-4 text-center text-sm text-slate-500">
+        New to Musibanda? <Link to="/register" className="font-bold text-amber-800 hover:text-amber-950">Create an account</Link>
       </p>
     </AuthLayout>
   )

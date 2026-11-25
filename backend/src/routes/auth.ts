@@ -1,6 +1,7 @@
 import { randomBytes, randomUUID } from 'node:crypto'
 import { Router, type Response } from 'express'
 import bcrypt from 'bcryptjs'
+import { rateLimit } from 'express-rate-limit'
 import { pool } from '../db/pool.js'
 import { hashSessionToken, requireAuth } from '../middleware/auth.js'
 import { loginSchema, registerSchema } from '../validation/auth.js'
@@ -16,6 +17,13 @@ const cookieOptions = {
   secure: process.env.NODE_ENV === 'production',
   path: '/',
 }
+const loginRateLimit = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 20,
+  standardHeaders: 'draft-7',
+  legacyHeaders: false,
+  message: { message: 'Email or password is incorrect.' },
+})
 
 function setSessionCookie(res: Response, token: string, maxAge?: number) {
   res.cookie('musibanda_session', token, { ...cookieOptions, ...(maxAge ? { maxAge } : {}) })
@@ -79,7 +87,7 @@ router.post('/register', async (req, res, next) => {
   }
 })
 
-router.post('/login', async (req, res, next) => {
+router.post('/login', loginRateLimit, async (req, res, next) => {
   const parsed = loginSchema.safeParse(req.body)
   if (!parsed.success) {
     res.status(400).json({ message: 'Enter a valid email address and password.' })

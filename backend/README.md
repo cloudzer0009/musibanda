@@ -45,7 +45,7 @@ The command requires at least 12 characters with uppercase, lowercase, and numer
 - `POST /api/auth/logout` — revoke the current session.
 - `/api/admin/*` — administrator-only dashboard, users, musicians, bookings, payments, and notification routes.
 
-Sessions are random opaque tokens stored as SHA-256 hashes in PostgreSQL. Cookies are HTTP-only, `SameSite=Lax`, and secure in production. Login attempts are rate-limited. Requests use parameterized SQL and backend validation.
+Sessions are random opaque tokens stored as SHA-256 hashes in PostgreSQL. Cookies are HTTP-only, `SameSite=Lax`, and secure in production. Repeated sign-in attempts are limited; registration, session checks, and logout are not counted. Invalid credentials and a temporarily limited sign-in both use the same generic message. Requests use parameterized SQL and backend validation.
 
 ## Tests and build
 

@@ -90,9 +90,9 @@ export default function Users({ roleFilter }: { roleFilter?: 'customer' | 'music
         <label className="relative flex-1">
           <span className="sr-only">Search users</span>
           <Search size={17} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-          <input value={searchText} onChange={(event) => setSearchText(event.target.value)} placeholder="Search name, email, or phone" className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-10 pr-4 text-sm outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10" />
+          <input value={searchText} onChange={(event) => setSearchText(event.target.value)} placeholder="Search name, email, or phone" className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-10 pr-4 text-sm outline-none focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10" />
         </label>
-        <button type="submit" className="rounded-xl bg-[#101827] px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800">Search</button>
+        <button type="submit" className="rounded-xl bg-[#101820] px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800">Search</button>
       </form>
       {error && <p role="alert" className="mb-4 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">{error}</p>}
       <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -139,7 +139,7 @@ function UserRow({ user, saving, onSave }: {
         <td className="px-5 py-4">
           <div className="flex items-center gap-3">
             <details className="relative">
-              <summary className="cursor-pointer font-semibold text-violet-700 hover:text-violet-900">Edit</summary>
+              <summary className="cursor-pointer font-semibold text-amber-800 hover:text-amber-950">Edit</summary>
               <form className="absolute right-0 z-10 mt-2 w-72 space-y-2 rounded-xl border border-slate-200 bg-white p-4 shadow-xl" onSubmit={(event) => {
                 event.preventDefault()
                 void onSave(user.id, { full_name: fullName, email, phone })
@@ -147,7 +147,7 @@ function UserRow({ user, saving, onSave }: {
                 <input aria-label="Full name" value={fullName} onChange={(event) => setFullName(event.target.value)} className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
                 <input aria-label="Email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
                 <input aria-label="Phone" value={phone} onChange={(event) => setPhone(event.target.value)} className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-                <button disabled={saving} className="w-full rounded-lg bg-violet-600 px-3 py-2 text-sm font-semibold text-white disabled:opacity-60">{saving ? 'Saving…' : 'Save details'}</button>
+                <button disabled={saving} className="w-full rounded-lg bg-amber-400 px-3 py-2 text-sm font-semibold text-slate-950 hover:bg-amber-300 disabled:opacity-60">{saving ? 'Saving…' : 'Save details'}</button>
               </form>
             </details>
             <button type="button" disabled={saving} onClick={() => void onSave(user.id, { is_active: !user.is_active })} className="font-semibold text-slate-600 hover:text-slate-900 disabled:opacity-50">
